@@ -1,0 +1,67 @@
+variant: fcos
+version: 1.6.0
+passwd:
+  users:
+    - name: core
+      groups:
+        - wheel
+      ssh_authorized_keys_local:
+        - infra/.keys/bharath_mac.pub
+storage:
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: hl-node-0
+    - path: /etc/sysctl.d/60-disable-ipv6.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          net.ipv6.conf.all.disable_ipv6 = 1
+          net.ipv6.conf.default.disable_ipv6 = 1
+    - path: /etc/zincati/config.d/55-updates-strategy.toml
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          [updates]
+          strategy = "periodic"
+          [[updates.periodic.window]]
+          days = [ "Sat", "Sun" ]
+          start_time = "22:30"
+          length_minutes = 60
+    - path: /usr/local/bin/bootstrap-k0s.sh
+      mode: 0755
+      contents:
+        inline: |
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          if command -v k0s >/dev/null 2>&1; then
+            exit 0
+          fi
+
+          curl -sSLf https://get.k0s.sh | sh
+
+          k0s install controller --single
+          k0s start
+systemd:
+  units:
+    - name: bootstrap-k0s.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Bootstrap k0s
+        After=network.target network-online.target
+        Wants=network-online.target
+        ConditionFirstBoot=yes
+
+        [Service]
+        Type=oneshot
+        ExecStart=/usr/local/bin/bootstrap-k0s.sh
+        RemainAfterExit=yes
+
+        [Install]
+        WantedBy=multi-user.target
