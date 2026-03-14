@@ -1,0 +1,66 @@
+{
+  "ignition": {
+    "version": "3.5.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "groups": [
+          "wheel"
+        ],
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZ9deNGiT8a9/uLo55fEJ2X7JaGvNJOHCMcKA5SoI94zm0idL5YSo2lrEAlfLxUFbYp3AIuZRK2+BpU98VfGUh0it1F2kSmQHc1Yzg8VwZReIMcjHlNoalHqDpFUtiUB/9lz55uUL5Jw6566TE+JN/lhT67LtvZ9expFQyBsG9wSDeTpe5K+46K9hikfPyqYL0e62lY/DNfnJDeCw/EVzfsSVxja27Vg2agOQOiC53cESn0RDbAl74Lazo8vXgyHHROuJdR3meMe2Pee5oSEXgBDLdm6CGdiFZfm/RbLSO/SFTfZlIM5mQP5L5OY9GNknY3jTbPTQ0WNNCZ1T3er11nUjrXFAfhB25vMaFzTLiWnRyzgTd5OJSfZLxr5u4hpKG/hdyyiSKPtqYT3XacPmuql2gHDQhlCN0XA2DllFiCWw011HjnrLqLScbMm/Mb02SaGYpe1+/mksVpffyBA5K2gN4e8fdO2kmYERblbVM5s933mm+xUGyT1snjCO8/KE= bharathpadmaraju@Bharaths-MBP.home"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,hl-node-0"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/sysctl.d/60-disable-ipv6.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,net.ipv6.conf.all.disable_ipv6%20%3D%201%0Anet.ipv6.conf.default.disable_ipv6%20%3D%201%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/zincati/config.d/55-updates-strategy.toml",
+        "contents": {
+          "compression": "",
+          "source": "data:;base64,W3VwZGF0ZXNdCnN0cmF0ZWd5ID0gInBlcmlvZGljIgpbW3VwZGF0ZXMucGVyaW9kaWMud2luZG93XV0KZGF5cyA9IFsgIlNhdCIsICJTdW4iIF0Kc3RhcnRfdGltZSA9ICIyMjozMCIKbGVuZ3RoX21pbnV0ZXMgPSA2MAo="
+        },
+        "mode": 420
+      },
+      {
+        "path": "/usr/local/bin/bootstrap-k0s.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/xzMMU4EMQwF0N6n+AiJLpuBEqQ9AR0nyM46G2s8zih2RhQcHkH9pPf8lKePfBPLbCduxRs5BxLPjkMOrkWUSCrWvu/F7kgntsVxzXc+s01VvF1fXj8QjY0A/pbAQlWI1jkUyb8+K1rE4e85Pzgu2+IXb/iBN6K/SsyjqGLtFqOr8kBKLvZQ/nePMoJ+AwAA//+/ambEqgAAAA=="
+        },
+        "mode": 493
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Bootstrap k0s\nAfter=network.target network-online.target\nWants=network-online.target\nConditionFirstBoot=yes\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/bootstrap-k0s.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "bootstrap-k0s.service"
+      }
+    ]
+  }
+}
