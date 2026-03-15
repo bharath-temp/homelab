@@ -30,3 +30,7 @@ flux check --pre
 ✔ Kubernetes 1.35.1+k0s >=1.33.0-0
 ✔ prerequisites checks passed
 ```
+
+Bootstrap Fluxcd
+`flux bootstrap github --token-auth --owner=$GITHUB_USER --repository=homelab --branch=master --path=./clusters/homelab --personal`
+ 
