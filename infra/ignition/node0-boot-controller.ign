@@ -1,0 +1,76 @@
+{
+  "ignition": {
+    "version": "3.5.0"
+  },
+  "passwd": {
+    "users": [
+      {
+        "groups": [
+          "wheel"
+        ],
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "<public-key>"
+        ]
+      }
+    ]
+  },
+  "storage": {
+    "directories": [
+      {
+        "path": "/var/lib/k0s/tokens",
+        "mode": 448
+      },
+      {
+        "path": "/etc/k0s",
+        "mode": 493
+      }
+    ],
+    "files": [
+      {
+        "overwrite": true,
+        "path": "/etc/hostname",
+        "contents": {
+          "compression": "",
+          "source": "data:,hl-node-0"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/sysctl.d/60-disable-ipv6.conf",
+        "contents": {
+          "compression": "",
+          "source": "data:,net.ipv6.conf.all.disable_ipv6%20%3D%201%0Anet.ipv6.conf.default.disable_ipv6%20%3D%201%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/etc/zincati/config.d/55-updates-strategy.toml",
+        "contents": {
+          "compression": "",
+          "source": "data:;base64,W3VwZGF0ZXNdCnN0cmF0ZWd5ID0gInBlcmlvZGljIgpbW3VwZGF0ZXMucGVyaW9kaWMud2luZG93XV0KZGF5cyA9IFsgIlNhdCIsICJTdW4iIF0Kc3RhcnRfdGltZSA9ICIyMjozMCIKbGVuZ3RoX21pbnV0ZXMgPSA2MAo="
+        },
+        "mode": 420
+      },
+      {
+        "path": "/usr/local/bin/bootstrap-k0s.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/3SQwU7rMBBF9/6K+/SeXmExcdoFC6rmJ/gCJxk3Vlw7eCYBJD4eNS0CCbrwYuyr43vm7x87S7FtSJbTgtbJYIQVxHPGFCb2LkRjgkeXTyeXetCCsRY0tufFpjlG7Jr/2z104GQAfg2K2vhgTDeXCKKpZM3YHAbVSTYg0ijLttqB5MljvX209shajbVUMuAdMvcZMhhz/qnLyYcjusJOGQ0sa2fHWs6nenOnuKZCEnUxntNacoxcQMTJtZHpJZdxnVMmdSGpgLqfHBCJuqLG+FwQEBL+3Qk/Y4uH+n6PPhsg+FVf1Ol8ewtAW9iNBvDBABKZJ+xMnxNfpDSPnD6diEqOfLjWbGAXV2wM7dpuTYq9PNI63SR8k/+d8hW4kj4CAAD//4KxSnYAAgAA"
+        },
+        "mode": 493
+      }
+    ]
+  },
+  "systemd": {
+    "units": [
+      {
+        "contents": "[Unit]\nDescription=Bootstrap k0s\nAfter=network.target network-online.target\nWants=network-online.target\nConditionFirstBoot=yes\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/bootstrap-k0s.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
+        "enabled": true,
+        "name": "bootstrap-k0s.service"
+      }
+    ]
+  }
+}

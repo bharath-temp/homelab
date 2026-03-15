@@ -1,0 +1,49 @@
+variant: fcos
+version: 1.6.0
+passwd:
+  users:
+    - name: core
+      groups:
+        - wheel
+      ssh_authorized_keys_local:
+        - infra/.keys/bharath_mac.pub
+storage:
+  directories:
+    - path: /var/lib/k0s/tokens
+      mode: 0700
+    - path: /etc/k0s
+      mode: 0755
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: hl-node-2
+    - path: /etc/sysctl.d/60-disable-ipv6.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          net.ipv6.conf.all.disable_ipv6 = 1
+          net.ipv6.conf.default.disable_ipv6 = 1
+    - path: /etc/zincati/config.d/55-updates-strategy.toml
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          [updates]
+          strategy = "periodic"
+          [[updates.periodic.window]]
+          days = [ "Sat", "Sun" ]
+          start_time = "22:30"
+          length_minutes = 60
+    - path: /var/lib/k0s/tokens/controller-token
+      mode: 0644
+      overwrite: true
+      contents:
+        local: infra/.env/controller-token
+    - path: /usr/local/bin/bootstrap-k0s-controller.sh
+      mode: 0755
+      overwrite: true
+      contents:
+        local: infra/scripts/inst-k0s-reg-controller.sh

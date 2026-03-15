@@ -10,19 +10,29 @@
         ],
         "name": "core",
         "sshAuthorizedKeys": [
-          "<pubkey>"
+          "<public-key>"
         ]
       }
     ]
   },
   "storage": {
+    "directories": [
+      {
+        "path": "/var/lib/k0s/tokens",
+        "mode": 448
+      },
+      {
+        "path": "/etc/k0s",
+        "mode": 493
+      }
+    ],
     "files": [
       {
         "overwrite": true,
         "path": "/etc/hostname",
         "contents": {
           "compression": "",
-          "source": "data:,hl-node-0"
+          "source": "data:,hl-node-2"
         },
         "mode": 420
       },
@@ -45,21 +55,22 @@
         "mode": 420
       },
       {
-        "path": "/usr/local/bin/bootstrap-k0s.sh",
+        "overwrite": true,
+        "path": "/var/lib/k0s/tokens/controller-token",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/xzMMU4EMQwF0N6n+AiJLpuBEqQ9AR0nyM46G2s8zih2RhQcHkH9pPf8lKePfBPLbCduxRs5BxLPjkMOrkWUSCrWvu/F7kgntsVxzXc+s01VvF1fXj8QjY0A/pbAQlWI1jkUyb8+K1rE4e85Pzgu2+IXb/iBN6K/SsyjqGLtFqOr8kBKLvZQ/nePMoJ+AwAA//+/ambEqgAAAA=="
+          "source": "<controller-token>"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/usr/local/bin/bootstrap-k0s-controller.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/2SOMW7rQAxE+z3FfHwgrijKLhPEl8gJVjLXWojeFZaUkgA5fCClSJGCBQcP8+b/P16t8ZALS9kwRJuCiYNkrVjyIilmDSEnjPXxiOUG2jD3hivfZOOyquJyfTq/wCcpAZCP7OhDyiGMa1MQLa16xel1cl/sBCJX287dBWRvCUf6zHwX7+beOpvwBVtvFTaFsJvGWlK+Y2wSXXAFi48897Zf9xkfelC5mEfVnfZWVaWBSEocVOi9tvn4SyWPubjtK+oshVJWAW+xsebhaD1y49+eHxI0/jWDyDw2D98BAAD//5hk4XxHAQAA"
         },
         "mode": 493
-      }
-    ]
-  },
-  "systemd": {
-    "units": [
-      {
-        "contents": "[Unit]\nDescription=Bootstrap k0s\nAfter=network.target network-online.target\nWants=network-online.target\nConditionFirstBoot=yes\n\n[Service]\nType=oneshot\nExecStart=/usr/local/bin/bootstrap-k0s.sh\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\n",
-        "enabled": true,
-        "name": "bootstrap-k0s.service"
       }
     ]
   }
