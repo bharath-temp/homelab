@@ -8,12 +8,17 @@ passwd:
       ssh_authorized_keys_local:
         - infra/.keys/bharath_mac.pub
 storage:
+  directories:
+    - path: /var/lib/k0s/tokens
+      mode: 0700
+    - path: /etc/k0s
+      mode: 0755
   files:
     - path: /etc/hostname
       mode: 0644
       overwrite: true
       contents:
-        inline: hl-node-0
+        inline: hl-node-1
     - path: /etc/sysctl.d/60-disable-ipv6.conf
       mode: 0644
       overwrite: true
@@ -32,36 +37,13 @@ storage:
           days = [ "Sat", "Sun" ]
           start_time = "22:30"
           length_minutes = 60
-    - path: /usr/local/bin/bootstrap-k0s.sh
-      mode: 0755
+    - path: /var/lib/k0s/tokens/controller-token
+      mode: 0644
+      overwrite: true
       contents:
-        inline: |
-          #!/usr/bin/env bash
-          set -euo pipefail
-
-          if command -v k0s >/dev/null 2>&1; then
-            exit 0
-          fi
-
-          curl -sSLf https://get.k0s.sh | sh
-
-          k0s install controller --single
-          k0s start
-systemd:
-  units:
-    - name: bootstrap-k0s.service
-      enabled: true
-      contents: |
-        [Unit]
-        Description=Bootstrap k0s
-        After=network.target network-online.target
-        Wants=network-online.target
-        ConditionFirstBoot=yes
-
-        [Service]
-        Type=oneshot
-        ExecStart=/usr/local/bin/bootstrap-k0s.sh
-        RemainAfterExit=yes
-
-        [Install]
-        WantedBy=multi-user.target
+        local: infra/.env/controller-token
+    - path: /usr/local/bin/bootstrap-k0s-controller.sh
+      mode: 0755
+      overwrite: true
+      contents:
+        local: infra/scripts/inst-k0s-reg-controller.sh
