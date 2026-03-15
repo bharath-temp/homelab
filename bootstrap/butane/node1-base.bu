@@ -6,7 +6,7 @@ passwd:
       groups:
         - wheel
       ssh_authorized_keys_local:
-        - infra/.keys/bharath_mac.pub
+        - bootstrap/.keys/bharath_mac.pub
 storage:
   directories:
     - path: /var/lib/k0s/tokens
@@ -41,9 +41,9 @@ storage:
       mode: 0644
       overwrite: true
       contents:
-        local: infra/.env/controller-token
+        local: bootstrap/.env/controller-token
     - path: /usr/local/bin/bootstrap-k0s-controller.sh
       mode: 0755
       overwrite: true
       contents:
-        local: infra/scripts/inst-k0s-reg-controller.sh
+        local: bootstrap/scripts/inst-k0s-reg-controller.sh

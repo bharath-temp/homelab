@@ -2,13 +2,13 @@
 .env
 .env/
 .env.*
+*.conf
 *.pem
 *.key
 *.crt
 *.p12
 *.pfx
-*.kubeconfig
-kubeconfig
+secrets/
 
 .DS_Store
 Thumbs.db

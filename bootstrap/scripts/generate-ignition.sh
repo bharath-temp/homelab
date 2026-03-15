@@ -3,7 +3,7 @@ set -euo pipefail
 
 if [[ $# -ne 1 ]]; then
   echo "Usage: $0 <butane-file>"
-  echo "Example: $0 infra/butane/node0.bu"
+  echo "Example: $0 bootstrap/butane/node0.bu"
   exit 1
 fi
 
@@ -12,7 +12,7 @@ BUTANE_FILE="$1"
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 FILE_NAME="$(basename "$BUTANE_FILE" .bu)"
-OUTPUT_FILE="${REPO_ROOT}/infra/ignition/${FILE_NAME}.ign"
+OUTPUT_FILE="${REPO_ROOT}/bootstrap/ignition/${FILE_NAME}.ign"
 
 docker run --rm \
   -v "${REPO_ROOT}:/work" \

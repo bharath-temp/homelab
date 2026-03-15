@@ -52,7 +52,7 @@ workstations public ssh key you wish to use.
 
 1. Let's start with generating the node0 butane file into a igntion file.
 
-`./infra/scripts/generate-ignition.sh infra/butane/node0-boot-controller.bu`
+`./bootstrap/scripts/generate-ignition.sh bootstrap/butane/node0-boot-controller.bu`
 you should see that the igntion was create.
 
 2. Let's embed the .ign file into the base FCOS iso
@@ -60,12 +60,12 @@ you should see that the igntion was create.
 Alter the ISO_SRC variable in `embed-ignition.sh` script to reflect that
 location. For example my path is `ISO_SRC="${HOME}/Downloads/fedora-coreos-43.***`.
 
-`./infra/scripts/embed-igntion.sh infra/ignition/node0-boot-controller.ign`
+`./bootstrap/scripts/embed-igntion.sh bootstrap/ignition/node0-boot-controller.ign`
 
 Now you should have an ISO in the iso's folder in the project root dir.
 
 3. Let's flash that ISO onto the USB drive.
-`sudo dd if=./infra/isos/fcos-node0-boot-controller.iso of=/dev/rdisk5 bs=4m status=progress`
+`sudo dd if=./bootstrap/isos/fcos-node0-boot-controller.iso of=/dev/rdisk5 bs=4m status=progress`
 *NOTE: The location of your thumb drive might be different*
 
 4. Bootstrap your node and spam the sh-t out of f12. Take note of the IP
@@ -101,8 +101,8 @@ just let the node be. *Do not disturb this node any further*.
 7. Take note of the controller and worker join tokens and place them in
 the .envs directory under the infra folder.
 
-`ssh core@<node0-IP> "sudo cat /var/lib/k0s/tokens/controller-token" > infra/.env/controller-token`
-`ssh core@<node0-IP> "sudo cat /var/lib/k0s/tokens/worker-token" > infra/.env/worker-token`
+`ssh core@<node0-IP> "sudo cat /var/lib/k0s/tokens/controller-token" > bootstrap/.env/controller-token`
+`ssh core@<node0-IP> "sudo cat /var/lib/k0s/tokens/worker-token" > bootstrap/.env/worker-token`
 
 ### Bootstrap the supporting controller noded (further nodes)
 Now that we've setup the bootstrap controller, let's move on to the
@@ -119,13 +119,13 @@ With that in mind let's setup the supporting controller nodes.
 *NOTE: The process will be the same for all proceeding nodes just replace #'s*
 
 0. Generate .ign file for new node from butane file.
-`./infra/scripts/generate-ignition.sh infra/butane/node1-base.bu`
+`./bootstrap/scripts/generate-ignition.sh bootstrap/butane/node1-base.bu`
 
 1. Embed .ign file into the iso.
-`./infra/scripts/embed-igntion.sh infra/ignition/node1-base.ign`
+`./bootstrap/scripts/embed-igntion.sh bootstrap/ignition/node1-base.ign`
 
 2. Flash the iso onto the thumb drive.
-`sudo dd if=./infra/isos/fcos-node1-base.iso of=/dev/rdisk5 bs=4m status=progress`
+`sudo dd if=./bootstrap/isos/fcos-node1-base.iso of=/dev/rdisk5 bs=4m status=progress`
 
 3. Take note of the IP address of the node and ssh to it.
 
