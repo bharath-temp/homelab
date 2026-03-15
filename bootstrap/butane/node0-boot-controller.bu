@@ -6,7 +6,7 @@ passwd:
       groups:
         - wheel
       ssh_authorized_keys_local:
-        - infra/.keys/bharath_mac.pub
+        - bootstrap/.keys/bharath_mac.pub
 storage:
   directories:
     - path: /var/lib/k0s/tokens
