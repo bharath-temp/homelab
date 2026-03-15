@@ -1,5 +1,20 @@
 # Bootstrapping FCOS and k0s
 
+## Links
+
+### Official Docs
+Butane: https://coreos.github.io/butane/
+Zincati: https://coreos.github.io/zincati/
+k0s Install: https://docs.k0sproject.io/v1.21.2+k0s.1/install/
+k0s Multi-Node Install: https://docs.k0sproject.io/head/k0s-multi-node/
+Producing .ign config: https://docs.fedoraproject.org/en-US/fedora-coreos/producing-ign/
+FCOS Bare Metal Install: https://docs.fedoraproject.org/en-US/fedora-coreos/bare-metal/
+
+### Community Resources
+Beginner's Guide to FCOS: https://www.reddit.com/r/Fedora/comments/1i7ewsf/beginners_guide_to_fedora_coreos/
+Youtube video on .gu -> .ign: https://www.youtube.com/watch?v=o5TTbA3YaHQ&t=310s
+
+
 ## Considerations
 - This is a 3-node system for now so all the nodes will inherit both
 roles of controller/worker. This satisfies the requirement of HA.
