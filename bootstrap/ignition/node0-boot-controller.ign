@@ -10,7 +10,7 @@
         ],
         "name": "core",
         "sshAuthorizedKeys": [
-          "<public-key>"
+          "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZ9deNGiT8a9/uLo55fEJ2X7JaGvNJOHCMcKA5SoI94zm0idL5YSo2lrEAlfLxUFbYp3AIuZRK2+BpU98VfGUh0it1F2kSmQHc1Yzg8VwZReIMcjHlNoalHqDpFUtiUB/9lz55uUL5Jw6566TE+JN/lhT67LtvZ9expFQyBsG9wSDeTpe5K+46K9hikfPyqYL0e62lY/DNfnJDeCw/EVzfsSVxja27Vg2agOQOiC53cESn0RDbAl74Lazo8vXgyHHROuJdR3meMe2Pee5oSEXgBDLdm6CGdiFZfm/RbLSO/SFTfZlIM5mQP5L5OY9GNknY3jTbPTQ0WNNCZ1T3er11nUjrXFAfhB25vMaFzTLiWnRyzgTd5OJSfZLxr5u4hpKG/hdyyiSKPtqYT3XacPmuql2gHDQhlCN0XA2DllFiCWw011HjnrLqLScbMm/Mb02SaGYpe1+/mksVpffyBA5K2gN4e8fdO2kmYERblbVM5s933mm+xUGyT1snjCO8/KE= bharathpadmaraju@Bharaths-MBP.home"
         ]
       }
     ]
@@ -58,7 +58,7 @@
         "path": "/usr/local/bin/bootstrap-k0s.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/3SQwU7rMBBF9/6K+/SeXmExcdoFC6rmJ/gCJxk3Vlw7eCYBJD4eNS0CCbrwYuyr43vm7x87S7FtSJbTgtbJYIQVxHPGFCb2LkRjgkeXTyeXetCCsRY0tufFpjlG7Jr/2z104GQAfg2K2vhgTDeXCKKpZM3YHAbVSTYg0ijLttqB5MljvX209shajbVUMuAdMvcZMhhz/qnLyYcjusJOGQ0sa2fHWs6nenOnuKZCEnUxntNacoxcQMTJtZHpJZdxnVMmdSGpgLqfHBCJuqLG+FwQEBL+3Qk/Y4uH+n6PPhsg+FVf1Ol8ewtAW9iNBvDBABKZJ+xMnxNfpDSPnD6diEqOfLjWbGAXV2wM7dpuTYq9PNI63SR8k/+d8hW4kj4CAAD//4KxSnYAAgAA"
+          "source": "data:;base64,H4sIAAAAAAAC/3RSQW7bMBC87yumalAnB4q2UfTgQH5DgV566IWSVhEhilTIpRqj6d8LyU7aIo4AHXZ3ODs7mI8fdE5R19Zr9jNqk3pKLFCcAyY7cWesI7IdmjCOxrdQM4ZtwlG3PGufncP++Gl3D+nZE8BPVrClzhI1OTooNcUgAZuqF5nSBkqJS/Ou3EOlbx3W7kHrB5Zy2KYy9XhGym1A6omWTU3wnX1AE9kI4wjN0uhhm5a/PJnREck4ddZxVdzcjoPwOL0Fld/X764gmkI7Go+YPZSKI34QoFTiJkcrJxUmgTM1u6q1ydSOz4D5lfOgf4Y4tDaugzY0A8fSBj3agTsTTa9Pj4fP63BDAFCmiZvSsyzvyimG2bYcUaFocpIwFni+ghtyzV9jeDqVFx0tKkjMvPDiRcPrgTiiuPl1ceJ3QTTO/zWu+bbYa30S49xis8TgHEcoxX5ZqJYda+2DEmO9JKjmLdHinpgoRF2IsLAeN7eJH7HDl+3dPdpAgO3W3CQxkt+PD1BHNgMBnSUgOeYJe2qD57NcCQP7lzAoFYPj6iLzCD2bqJ2tV3UrMunzUK3Vuwz/HH+d5S/gwvQnAAD//3KDK305AwAA"
         },
         "mode": 493
       }
