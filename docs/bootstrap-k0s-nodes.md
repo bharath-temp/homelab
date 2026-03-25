@@ -180,6 +180,8 @@ hl-node-2   Ready    control-plane   58s   v1.35.1+k0s
 
 1. Copy pki over to config
 Under `~/.kube/config` copy over the contents of `sudo cat /var/lib/k0s/pki/admin.conf`
+`ssh core@10.0.0.54 "sudo cat /var/lib/k0s/pki/admin.conf" > ~/.kube/config`
+Change the config settings: `server: https://localhost:6443` to `<node0-ip:6443>`
 from a control plane node.
 
 Worker nodes ... tbd
