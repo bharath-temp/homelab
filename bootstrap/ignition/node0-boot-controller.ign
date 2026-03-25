@@ -58,7 +58,7 @@
         "path": "/usr/local/bin/bootstrap-k0s.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/3RSQW7bMBC87yumalAnB4q2UfTgQH5DgV566IWSVhEhilTIpRqj6d8LyU7aIo4AHXZ3ODs7mI8fdE5R19Zr9jNqk3pKLFCcAyY7cWesI7IdmjCOxrdQM4ZtwlG3PGufncP++Gl3D+nZE8BPVrClzhI1OTooNcUgAZuqF5nSBkqJS/Ou3EOlbx3W7kHrB5Zy2KYy9XhGym1A6omWTU3wnX1AE9kI4wjN0uhhm5a/PJnREck4ddZxVdzcjoPwOL0Fld/X764gmkI7Go+YPZSKI34QoFTiJkcrJxUmgTM1u6q1ydSOz4D5lfOgf4Y4tDaugzY0A8fSBj3agTsTTa9Pj4fP63BDAFCmiZvSsyzvyimG2bYcUaFocpIwFni+ghtyzV9jeDqVFx0tKkjMvPDiRcPrgTiiuPl1ceJ3QTTO/zWu+bbYa30S49xis8TgHEcoxX5ZqJYda+2DEmO9JKjmLdHinpgoRF2IsLAeN7eJH7HDl+3dPdpAgO3W3CQxkt+PD1BHNgMBnSUgOeYJe2qD57NcCQP7lzAoFYPj6iLzCD2bqJ2tV3UrMunzUK3Vuwz/HH+d5S/gwvQnAAD//3KDK305AwAA"
+          "source": "data:;base64,H4sIAAAAAAAC/3SQwU7rMBBF9/6K+/SeXmExcdoFC6rmJ/gCJxk3Vlw7eCYBJD4eNS0CCbrwYuyj43vn7x87S7FtSJbTgtbJYIQVxHPGFCb2LkRjgkeXTyeXetCCsRY0tufFpjlG7Jr/2z104GQAfg2K2vhgTDeXCKKpZM3YHAbVSTYg0ijLttqB5MljvX209shajbVUMuAdMvcZMhhz/qnLyYcjusJOGQ0sa2fHWs6nenOneMFCEnUxnnEtOUYuIOLk2sj0ksu4zimTupBUQN1PEYhEXVFjfC4ICAn/7oSfscVDfb9Hnw0Q/Npf1Ol8ew1AW9iNBvDBABKZJ+xMnxNf4moeOX2WIio58uEas4FdXLExtGu6lRR7eaR1umn4Vv53yxdwNX0EAAD//8kn/HIBAgAA"
         },
         "mode": 493
       }
