@@ -37,6 +37,16 @@ storage:
           days = [ "Sat", "Sun" ]
           start_time = "22:30"
           length_minutes = 60
+    - path: /etc/profile.d/kubectl-alias.sh
+      mode: 0644
+      contents:
+        inline: |
+          alias kubectl='sudo k0s kubectl'
+    - path: /usr/local/bin/install-cilium.sh
+      mode: 0755
+      overwrite: true
+      contents:
+        local: bootstrap/scripts/install-cilium.sh
     - path: /usr/local/bin/bootstrap-k0s.sh
       mode: 0755
       contents:
@@ -48,7 +58,7 @@ storage:
             exit 0
           fi
 
-          curl --proto '=https' --tlsv1.2 -sSf https://get.k0s.sh | sudo sh
+          curl --proto '=https' --tlsv1.2 -sSf https://get.k0s.sh | sh
 
           k0s config create > /etc/k0s/k0s.yaml
 

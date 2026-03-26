@@ -37,13 +37,13 @@ storage:
           days = [ "Sat", "Sun" ]
           start_time = "22:30"
           length_minutes = 60
-    - path: /var/lib/k0s/tokens/controller-token
+    - path: /var/lib/k0s/tokens/worker-token
       mode: 0644
       overwrite: true
       contents:
-        local: bootstrap/.env/controller-token
-    - path: /usr/local/bin/bootstrap-k0s-controller.sh
+        local: bootstrap/.env/worker-token
+    - path: /usr/local/bin/bootstrap-k0s-worker.sh
       mode: 0755
       overwrite: true
       contents:
-        local: bootstrap/scripts/inst-k0s-reg-controller.sh
+        local: bootstrap/scripts/inst-k0s-worker.sh

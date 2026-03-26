@@ -55,10 +55,27 @@
         "mode": 420
       },
       {
+        "path": "/etc/profile.d/kubectl-alias.sh",
+        "contents": {
+          "compression": "",
+          "source": "data:,alias%20kubectl%3D'sudo%20k0s%20kubectl'%0A"
+        },
+        "mode": 420
+      },
+      {
+        "overwrite": true,
+        "path": "/usr/local/bin/install-cilium.sh",
+        "contents": {
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/8yVUW/bNhSF3/kr7lQ/2MBIxp1qdCs0oNO6VpjXFHa7l20IaOpKIkSRAknJdtP890GWk7rYkmwvhaEHCTo8h58ur8gn3/DOO75RhqPpYSN8RTwGoNhZaFWLhVCaEJSVhShJkh9hjSEoU0LdbVBaU6gyIuTXDz+9St8vk8h3uYX6wo9y0NEX3sz4ILQe7K9FwK3Yw8t3GaSrnz1M+zmL2XwWETI5xoFoW70HWkAVQut/4NyJLStVqLpN59FJawKawKRt+DCfMxjQU69Kz8sxn4pW8TGZj7Rcupz7IEwuXH47jBkMW+tqZUpWP/dM2aujIrXwHj3bi0afFdg5IQ1TOtuFs6qTwwIdGomlEyac1Qq6Vp6WizyByzYoa4SG98v1apBgirsWnWrQBKFnXwH8dL4H4IP2J+zw6RME1+F9v3mqtOoaSJdZREiaLbMPv12ly+zq91erdXb5NplMZec0UP8fPkceso43KrXijVBmKPhGIwu7MCND9MtV+iYRTb6IiSrgD4gm086IBoE2swgSiIRwslrEEfz1AkKFBj67XLOIX0ChCBmxlkDpsAMCpQ4bG5AOSVRoDX8SuGMeee+BdKhRePQ8t1ujrcj55Pqflbi5tWhluh2dXN9C3bAgHCs/Xn/LfCWePlv4rrkh5O4ZKJUVyhoe8X92E3LYpYNwsPvYF+ljTjgcEdpKoYeDgrgG/h/rg63Rz9n8e/Y0OlId2vzy7S/Z64T3wnGtNry+8LytFRd5owwbWvYIAGqMOywGpT06r6yBMfH4cjjN6ud+ja5XEt9YH5L5BRuuZ/G/DnlnXUgWcfzdiaraPmZohkbLk6Hfv9QWd1ohtD8VPcrOqbBPhz7eBdY61SuN5TGG/B0AAP//SKdJ5YAHAAA="
+        },
+        "mode": 493
+      },
+      {
         "path": "/usr/local/bin/bootstrap-k0s.sh",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/3SQwU7rMBBF9/6K+/SeXmExcdoFC6rmJ/gCJxk3Vlw7eCYBJD4eNS0CCbrwYuyj43vn7x87S7FtSJbTgtbJYIQVxHPGFCb2LkRjgkeXTyeXetCCsRY0tufFpjlG7Jr/2z104GQAfg2K2vhgTDeXCKKpZM3YHAbVSTYg0ijLttqB5MljvX209shajbVUMuAdMvcZMhhz/qnLyYcjusJOGQ0sa2fHWs6nenOneMFCEnUxnnEtOUYuIOLk2sj0ksu4zimTupBUQN1PEYhEXVFjfC4ICAn/7oSfscVDfb9Hnw0Q/Npf1Ol8ew1AW9iNBvDBABKZJ+xMnxNf4moeOX2WIio58uEas4FdXLExtGu6lRR7eaR1umn4Vv53yxdwNX0EAAD//8kn/HIBAgAA"
+          "source": "data:;base64,H4sIAAAAAAAC/3SQwU7rMBBF9/6K+/SeXmExcdoFC6rmJ/gCJxk3Vlw7eCYBJD4eNS0CCbrwYuyj43vn7x87S7FtSJbTgtbJYIQVxHPGFCb2LkRjgkeXTyeXetCCsRY0tufFpjlG7Jr/2z104GQAfg2K2vhgTDeXCKKpZM3YHAbVSTYg0ijLttqB5MljvX209shajbVUMuAdMhhz/qTLyYcjusJOGQ0sa2fHWs6nenOneMFCEnUxnnEtOUYuIOLk2sj0ksu4zimTupBUQN1PEYhEXVFjfC4ICAn/7oSfscVDfb9Hnw0Q/Fpd1Ol8ewNAW9iNBvDBABKZJ+xMnxNf4moeOX2WIio58uEas4FdXLExtGu6lRR7eaR1umn4Vv53yxdwNX0EAAD//xYL2Av8AQAA"
         },
         "mode": 493
       }
