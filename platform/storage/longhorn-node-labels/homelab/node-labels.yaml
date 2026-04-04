@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Node
+metadata:
+  name: hl-node-1
+  labels:
+    node.longhorn.io/create-default-disk: "true"
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: hl-node-2
+  labels:
+    node.longhorn.io/create-default-disk: "true"

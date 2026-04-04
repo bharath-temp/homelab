@@ -76,6 +76,9 @@ storage:
 
 systemd:
   units:
+    - name: iscsid.service
+      enabled: true
+  units:
     - name: bootstrap-k0s.service
       enabled: true
       contents: |

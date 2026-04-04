@@ -9,6 +9,8 @@
 *.p12
 *.pfx
 secrets/
+.ign
+.ign/
 
 .DS_Store
 Thumbs.db

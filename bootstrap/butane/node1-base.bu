@@ -47,3 +47,9 @@ storage:
       overwrite: true
       contents:
         local: bootstrap/scripts/inst-k0s-worker.sh
+systemd:
+  units:
+    - name: iscsid.service
+      enabled: true
+    - name: iscsid.socket
+      enabled: true

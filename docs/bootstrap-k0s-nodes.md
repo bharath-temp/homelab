@@ -12,7 +12,7 @@
 
 ### Community Resources
 - Beginner's Guide to FCOS: https://www.reddit.com/r/Fedora/comments/1i7ewsf/beginners_guide_to_fedora_coreos/
-- Youtube video on .gu -> .ign: https://www.youtube.com/watch?v=o5TTbA3YaHQ&t=310s
+- Youtube video on .bu -> .ign: https://www.youtube.com/watch?v=o5TTbA3YaHQ&t=310s
 
 
 ## Considerations
