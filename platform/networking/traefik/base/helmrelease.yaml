@@ -1,0 +1,53 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: traefik
+  namespace: traefik
+spec:
+  interval: "5h" # drift of helm created resources
+  driftDetection:
+    mode: enabled
+  releaseName: traefik
+  
+  # shortcut path in reality it's creating a flux HelmChart CR
+  chart: 
+    spec:
+      chart: traefik
+      version: "39.x"
+      interval: "5h" # checking new chart version from source
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+        namespace: traefik
+  values:
+    deployment:
+      replicas: 1
+
+    providers:
+      kubernetesIngress:
+        enabled: false
+      kubernetesGateway:
+        enabled: true
+        experimentalChannel: true
+
+    # Configure Network Ports and EntryPoints
+    # EntryPoints are the network listeners for incoming traffic.
+    ports:
+      # Defines the HTTP entry point named 'web'
+      web:
+        port: 8000
+        nodePort: 30000
+        # Instructs this entry point to redirect all traffic to the 'websecure' entry point
+        http:
+          redirections:
+            entryPoint:
+              to: websecure
+              scheme: https
+              permanent: true
+      # Defines the HTTPS entry point named 'websecure'
+      websecure:
+        port: 8443
+        nodePort: 30001
+
+    ingressClass:
+      enabled: false
