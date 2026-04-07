@@ -2,11 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: traefik
+  name: gateway-api
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./platform/networking/traefik/homelab
+  path: ./platform/networking/gateway-api/crds
   prune: true
   sourceRef:
     kind: GitRepository

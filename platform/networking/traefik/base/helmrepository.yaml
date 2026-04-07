@@ -5,5 +5,5 @@ metadata:
   namespace: traefik
 spec:
   interval: "24h"
-  url: oci://ghcr.io/traefik/helm/traefik
+  url: oci://ghcr.io/traefik/helm
   type: "oci"
