@@ -23,10 +23,6 @@ spec:
     deployment:
       replicas: 1
 
-    experimental:
-      kubernetesGateway:
-        enabled: true
-
     providers:
       kubernetesIngress:
         enabled: false
