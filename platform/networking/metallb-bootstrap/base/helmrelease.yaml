@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: metallb-system
+spec:
+  interval: "5h" # drift of helm created resources
+  driftDetection:
+    mode: enabled
+  releaseName: metallb
+  
+  # shortcut path in reality it's creating a flux HelmChart CR
+  chart: 
+    spec:
+      chart: metallb
+      version: "0.15.x"
+      interval: "5h" # checking new chart version from source
+      sourceRef:
+        kind: HelmRepository
+        name: metallb
+        namespace: metallb-system
+  values:
+    

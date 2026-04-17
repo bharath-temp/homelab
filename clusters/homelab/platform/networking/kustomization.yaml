@@ -4,3 +4,5 @@ resources:
   - traefik.yaml
   - gateway-api.yaml
   - gateway.yaml
+  - metallb-bootstrap.yaml
+  - metallb-config.yaml

@@ -21,7 +21,7 @@ spec:
         namespace: traefik
   values:
     deployment:
-      replicas: 1
+      replicas: 2
 
     providers:
       kubernetesIngress:

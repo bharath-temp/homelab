@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - gateway/homelab
   - gateway-api/crds
+  - metallb-bootstrap/homelab
+  - metallb-config/homelab
   - traefik/homelab
