@@ -7,7 +7,11 @@ metadata:
 spec:
   interval: 10m0s
   path: ./platform/networking/gateway-api/crds
-  prune: true
+  # If pruning is enabled and the CRD manifests are removed from Git
+  # (even accidentally), Flux would delete the CRDs from the cluster.
+  # Deleting a CRD causes Kubernetes to garbage-collect all custom
+  # resources of that type, which can result in catastrophic data loss.
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system
