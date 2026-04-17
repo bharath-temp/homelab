@@ -8,7 +8,12 @@ spec:
   driftDetection:
     mode: enabled
   releaseName: traefik
-  
+
+  install:
+    crds: Skip
+  upgrade:
+    crds: Skip
+
   # shortcut path in reality it's creating a flux HelmChart CR
   chart: 
     spec:
