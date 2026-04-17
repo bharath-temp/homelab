@@ -29,6 +29,16 @@ spec:
         name: longhorn
         namespace: longhorn-system
   values:
+    httproute:
+      enabled: true
+      parentRefs:
+        - name: main
+          namespace: traefik
+          sectionName: http
+      hostnames:
+        - longhorn.beeslab.me
+      path: /
+      pathType: PathPrefix
     defaultSettings:
       createDefaultDiskLabeledNodes: true
       defaultDataPath: "/var/mnt/longhornfast"
