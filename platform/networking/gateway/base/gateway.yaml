@@ -14,18 +14,19 @@ spec:
           - kind: HTTPRoute         
         namespaces:
           from: All
-##    - name: https           
-##      protocol: HTTPS       
-##      port: 443             
-##      tls:                  
-##        certificateRefs:    
-##          - kind: "Secret"
-##            name: "mysecret"      # To be added
-##      allowedRoutes:        
-##        kinds:
-##          - kind: HTTPRoute
-##        namespaces:
-##          from: All
+    - name: https           
+      protocol: HTTPS       
+      port: 8443
+      hostname: "*.beeslab.me"     
+      tls:
+        mode: Terminate     
+        certificateRefs:    
+          - name: beeslab-me-wildcard-tls
+      allowedRoutes:        
+        kinds:
+          - kind: HTTPRoute
+        namespaces:
+          from: All
 ##    - name: tcp           
 ##      protocol: TCP       
 ##      port: 8000          

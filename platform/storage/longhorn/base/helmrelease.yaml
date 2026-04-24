@@ -35,6 +35,9 @@ spec:
         - name: main
           namespace: traefik
           sectionName: http
+        - name: main
+          namespace: traefik
+          sectionName: https
       hostnames:
         - longhorn.beeslab.me
       path: /
