@@ -6,5 +6,5 @@ resources:
 #  - platform/auth
 #  - platform/data
   - platform/networking
-#  - platform/security
+  - platform/security
   - platform/storage
