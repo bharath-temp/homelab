@@ -1,0 +1,37 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: external-dns
+  namespace: external-dns
+spec:
+  interval: "5h" # drift of helm created resources
+  driftDetection:
+    mode: enabled
+  releaseName: external-dns
+  
+  # shortcut path in reality it's creating a flux HelmChart CR
+  chart: 
+    spec:
+      chart: external-dns
+      version: "1.20.x"
+      interval: "5h" # checking new chart version from source
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: external-dns
+  values:
+    provider:
+      name: cloudflare
+    sources:
+      - gateway-httproute
+    domainFilters:
+      - "beeslab.me"
+    registry: txt
+    txtOwnerId: homelab
+    policy: upsert-only
+    env:
+      - name: CF_API_TOKEN
+        valueFrom:
+          secretKeyRef:
+            name: cloudflare-api-key
+            key: apiKey
