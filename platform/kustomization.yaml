@@ -4,5 +4,5 @@ resources:
 #  - auth
 #  - db
   - networking
-#  - security
+  - security
   - storage
