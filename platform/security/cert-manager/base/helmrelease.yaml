@@ -13,7 +13,7 @@ spec:
   chart: 
     spec:
       chart: cert-manager
-      version: "1.20.x"
+      version: "v1.20.x"
       interval: "5h" # checking new chart version from source
       sourceRef:
         kind: HelmRepository
