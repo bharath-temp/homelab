@@ -69,7 +69,7 @@ spec:
         ExternalSecure: true
 
         Login:
-          DefaultLoginURLV2: false
+          DefaultLoginURLV2: ""
 
         TLS:
           Enabled: false
