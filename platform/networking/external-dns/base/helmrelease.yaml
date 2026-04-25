@@ -25,7 +25,7 @@ spec:
     sources:
       - gateway-httproute
     domainFilters:
-      - "beeslab.me"
+      - "internal.beeslab.me"
     registry: txt
     txtOwnerId: homelab
     policy: upsert-only

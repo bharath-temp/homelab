@@ -39,7 +39,7 @@ spec:
           namespace: traefik
           sectionName: https
       hostnames:
-        - longhorn.beeslab.me
+        - longhorn.internal.beeslab.me
       path: /
       pathType: PathPrefix
     defaultSettings:
