@@ -1,0 +1,50 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: beetube-config
+  namespace: beetube
+data:
+  OIDC_ISSUER: "https://zitadel.beeslab.me"
+  OIDC_REDIRECT_URL: "https://beetube.beeslab.me/auth/callback"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beetube
+  namespace: beetube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: beetube
+  template:
+    metadata:
+      labels:
+        app: beetube
+    spec:
+      containers:
+        - name: beetube
+          image: bharathpadmaraju/tubelab:0.1.1
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: beetube-config
+            - secretRef:
+                name: beetube-app-secrets
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: beetube
+  namespace: beetube
+spec:
+  selector:
+    app: beetube
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
