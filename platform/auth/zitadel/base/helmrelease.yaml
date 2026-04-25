@@ -35,6 +35,8 @@ spec:
     login:
       ingress:
         enabled: false
+      service:
+        protocol: h2c
       gateway:
         httpRoute:
           enabled: true
@@ -58,6 +60,7 @@ spec:
     service:
       type: ClusterIP
       port: 8080
+      protocol: h2c
 
     zitadel:
       configmapConfig:
