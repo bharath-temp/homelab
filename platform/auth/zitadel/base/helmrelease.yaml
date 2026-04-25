@@ -35,8 +35,8 @@ spec:
     login:
       enabled: true
       gateway:
-        enabled: true
         httpRoute:
+          enabled: true
           hostnames:
             - zitadel.beeslab.me
           parentRefs:
