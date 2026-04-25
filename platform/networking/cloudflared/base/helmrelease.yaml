@@ -1,0 +1,30 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cloudflared
+  namespace: cloudflared
+spec:
+  interval: "5h" # drift of helm created resources
+  driftDetection:
+    mode: enabled
+  releaseName: cloudflared
+  
+  # shortcut path in reality it's creating a flux HelmChart CR
+  chart: 
+    spec:
+      chart: cloudflare-tunnel-remote
+      version: "*"
+      interval: "5h"
+      sourceRef:
+        kind: HelmRepository
+        name: cloudflare
+        namespace: cloudflared
+  valuesFrom:
+    - kind: Secret
+      name: cloudflared-values
+      valuesKey: values.yaml
+  values:
+    replicaCount: 2
+    image:
+      repository: cloudflare/cloudflared
+      pullPolicy: IfNotPresent
