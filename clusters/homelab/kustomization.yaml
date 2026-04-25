@@ -4,7 +4,7 @@ resources:
 #  - apps
   - flux-system
 #  - platform/auth
-#  - platform/data
+  - platform/data
   - platform/networking
   - platform/security
   - platform/storage
