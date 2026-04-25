@@ -33,12 +33,9 @@ spec:
       enabled: false
 
     login:
-      enabled: false
-      ingress:
-        enabled: false
+      enabled: true
       gateway:
         httpRoute:
-          enabled: false
           hostnames:
             - zitadel.beeslab.me
           parentRefs:
@@ -67,9 +64,6 @@ spec:
         ExternalDomain: zitadel.beeslab.me
         ExternalPort: 443
         ExternalSecure: true
-
-        Login:
-          DefaultLoginURLV2: ""
 
         TLS:
           Enabled: false
