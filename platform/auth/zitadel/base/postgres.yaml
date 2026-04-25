@@ -5,6 +5,7 @@ metadata:
   namespace: zitadel
 spec:
   instances: 1
+  enableSuperuserAccess: true 
   storage:
     size: 3Gi
     storageClass: longhorn
