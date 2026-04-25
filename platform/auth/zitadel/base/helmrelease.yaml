@@ -33,13 +33,12 @@ spec:
       enabled: false
 
     login:
+      enabled: false
       ingress:
         enabled: false
-      service:
-        appProtocol: kubernetes.io/h2c
       gateway:
         httpRoute:
-          enabled: true
+          enabled: false
           hostnames:
             - zitadel.beeslab.me
           parentRefs:
