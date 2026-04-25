@@ -4,6 +4,15 @@ metadata:
   name: zitadel
   namespace: zitadel
 spec:
+  postRenderers:
+    - kustomize:
+        patches:
+          - target:
+              kind: Service
+              name: zitadel-login
+            patch: |
+              - op: remove
+                path: /spec/ports/0/appProtocol
   interval: "5h" # drift of helm created resources
   driftDetection:
     mode: enabled
