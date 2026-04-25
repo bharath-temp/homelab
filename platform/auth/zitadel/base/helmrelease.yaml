@@ -36,7 +36,7 @@ spec:
       ingress:
         enabled: false
       service:
-        protocol: h2c
+        appProtocol: kubernetes.io/h2c
       gateway:
         httpRoute:
           enabled: true
@@ -60,7 +60,8 @@ spec:
     service:
       type: ClusterIP
       port: 8080
-      protocol: h2c
+      protocol: http2
+      appProtocol: kubernetes.io/h2c
 
     zitadel:
       configmapConfig:
