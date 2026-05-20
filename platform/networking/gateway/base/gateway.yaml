@@ -27,6 +27,19 @@ spec:
           - kind: HTTPRoute
         namespaces:
           from: All
+    - name: https-internal           
+      protocol: HTTPS       
+      port: 8443
+      hostname: "*.internal.beeslab.me"     
+      tls:
+        mode: Terminate     
+        certificateRefs:    
+          - name: beeslab-me-wildcard-tls
+      allowedRoutes:        
+        kinds:
+          - kind: HTTPRoute
+        namespaces:
+          from: All
 ##    - name: tcp           
 ##      protocol: TCP       
 ##      port: 8000          

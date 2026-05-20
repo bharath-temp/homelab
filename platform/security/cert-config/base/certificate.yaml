@@ -11,3 +11,4 @@ spec:
   dnsNames:
     - beeslab.me
     - "*.beeslab.me"
+    - "*.internal.beeslab.me"
