@@ -7,5 +7,6 @@ resources:
   - platform/auth
   - platform/data
   - platform/networking
+  - platform/observability
   - platform/security
   - platform/storage
