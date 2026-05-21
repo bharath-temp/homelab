@@ -20,20 +20,8 @@ spec:
         kind: HelmRepository
         name: headlamp
         namespace: headlamp-system
-  valuesFrom:
-    - kind: Secret
-      name: headlamp-app-secrets
-      valuesKey: OAUTH2_CLIENT_SECRET
-      targetPath: config.oidc.clientSecret
 
   values:
-    config:
-      oidc:
-        clientID: "373858034687934740"
-        issuerURL: "https://zitadel.beeslab.me"
-        scopes: "openid profile email"
-        callbackURL: "https://headlamp.internal.beeslab.me/oidc-callback"
-
     httpRoute:
       enabled: true
       parentRefs:
