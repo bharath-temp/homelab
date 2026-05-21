@@ -32,6 +32,7 @@ spec:
         clientID: "373858034687934740"
         issuerURL: "https://zitadel.beeslab.me"
         scopes: "openid profile email"
+        callbackURL: "https://headlamp.internal.beeslab.me/oidc-callback"
 
     httpRoute:
       enabled: true
