@@ -22,6 +22,8 @@ spec:
         namespace: headlamp-system
 
   values:
+    config:
+      watchPlugins: true
     httpRoute:
       enabled: true
       parentRefs:
