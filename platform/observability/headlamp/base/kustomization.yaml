@@ -4,4 +4,4 @@ resources:
   - namespace.yaml
   - helmrelease.yaml
   - helmrepository.yaml
-#  - headlamp.secret.yaml
+  - headlamp.secret.yaml
