@@ -29,7 +29,7 @@ spec:
   values:
     config:
       oidc:
-        clientID: "373858034g687934740"
+        clientID: "373858034687934740"
         issuerURL: "https://zitadel.beeslab.me"
         scopes: "openid profile email"
 
