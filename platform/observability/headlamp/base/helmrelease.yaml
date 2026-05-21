@@ -29,9 +29,9 @@ spec:
           sectionName: https-internal
       hostnames:
         - headlamp.internal.beeslab.me
-      rules:
-        path: /
-        pathType: PathPrefix
+#      rules:
+#        path: /
+#        pathType: PathPrefix
 
     pluginsManager:
       enabled: true
