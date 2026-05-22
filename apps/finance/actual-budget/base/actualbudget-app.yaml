@@ -23,8 +23,6 @@ spec:
             - name: data
               mountPath: /data
           envFrom:
-            - configMapRef:
-                name: actualbudget-config
             - secretRef:
                 name: actualbudget-app-secrets
       volumes:
