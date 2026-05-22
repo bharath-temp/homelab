@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - apps/yt
   - apps/rss
+  - apps/notes
   - flux-system
   - platform/auth
   - platform/data
