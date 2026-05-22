@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actualbudget
+  namespace: actualbudget
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: actualbudget
+  template:
+    metadata:
+      labels:
+        app: actualbudget
+    spec:
+      containers:
+        - name: actualbudget
+          image: ghcr.io/actualbudget/actual:latest-alpine
+          ports:
+            - containerPort: 5006
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          envFrom:
+            - configMapRef:
+                name: actualbudget-config
+            - secretRef:
+                name: actualbudget-app-secrets
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: actualbudget-data
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: actualbudget
+  namespace: actualbudget
+spec:
+  selector:
+    app: actualbudget
+  ports:
+    - protocol: TCP
+      port: 5006
+      targetPort: 5006
