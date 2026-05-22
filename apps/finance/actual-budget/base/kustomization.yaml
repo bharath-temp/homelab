@@ -5,4 +5,5 @@ resources:
   - actualbudget-app.yaml
   - actualbudget-app.secret.yaml
   - httproute.yaml
+  - middleware.yaml
   - pvc.yaml
