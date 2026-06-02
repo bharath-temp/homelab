@@ -5,6 +5,7 @@ resources:
   - apps/notes
   - apps/rss
   - apps/yt
+  - media
   - flux-system
   - platform/auth
   - platform/data

@@ -1,0 +1,12 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: homelab-media
+  namespace: flux-system
+spec:
+  interval: 5m
+  url: ssh://git@github.com/bharath-temp/homelab-media.git
+  ref:
+    branch: master
+  secretRef:
+    name: media-stack-deploy-key
